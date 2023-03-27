@@ -21,9 +21,10 @@ public class main {
         data.y[0] = tY / (data.num-1);
         System.out.println( "0: " + data.x[0] + " " +  data.y[0]);
 
-        int numberOfDrones = 9;
+        int numberOfDrones = 10;
+
         double limitDistance = 150.0;
-        int[][] paths = MTSPWithLimits.solveMTSP(data, numberOfDrones, limitDistance);
+        int[][] paths = MTSPWithLimits.solveMTSP(data, numberOfDrones, limitDistance, true);
 
         if (paths.length == 0) {
             System.out.println("Error: Unable to complete the task with the given drones and limit distance.");

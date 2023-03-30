@@ -145,17 +145,20 @@ public class MTSPWithLimits {
         for (double value : data.y) {
             yList.add(value);
         }
-
-        // 将禁飞区节点加入
-        for (ForbiddenZone zone : data.forbiddenZones) {
-            for (double value : zone.x) {
-                xList.add(value);
-                System.out.println(xList.size()-1);
-            }
-            for (double value : zone.y) {
-                yList.add(value);
+        if (data.forbiddenZones != null)
+        {
+            // 将禁飞区节点加入
+            for (ForbiddenZone zone : data.forbiddenZones) {
+                for (double value : zone.x) {
+                    xList.add(value);
+                    System.out.println(xList.size()-1);
+                }
+                for (double value : zone.y) {
+                    yList.add(value);
+                }
             }
         }
+
 
 
         dataWithForbiddenZones.x = xList.stream().mapToDouble(Double::doubleValue).toArray();

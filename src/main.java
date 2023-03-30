@@ -8,32 +8,32 @@ public class main {
 
 
 // Generate a random number of forbidden zones between 1 and 5
-        int numForbiddenZones = (int) (Math.random() * 5) + 1;
-        List<ForbiddenZone> forbiddenZones = new ArrayList<>();
-
-        for (int i = 0; i < numForbiddenZones; i++) {
-            ForbiddenZone zone = new ForbiddenZone();
-
-            // Generate a random number of nodes between 3 and 8
-            zone.nodeNum = (int) (Math.random() * 6) + 3;
-            zone.x = new double[zone.nodeNum];
-            zone.y = new double[zone.nodeNum];
-
-            // Generate random nodes
-            double centerX = Math.random() * 100;
-            double centerY = Math.random() * 100;
-            double radius = Math.random() * 50;
-            double angleStep = 2 * Math.PI / zone.nodeNum;
-
-            for (int j = 0; j < zone.nodeNum; j++) {
-                zone.x[j] = centerX + radius * Math.cos(angleStep * j);
-                zone.y[j] = centerY + radius * Math.sin(angleStep * j);
-            }
-
-            forbiddenZones.add(zone);
-        }
-
-        data.forbiddenZones = forbiddenZones.toArray(new ForbiddenZone[forbiddenZones.size()]);
+//        int numForbiddenZones = (int) (Math.random() * 5) + 1;
+//        List<ForbiddenZone> forbiddenZones = new ArrayList<>();
+//
+//        for (int i = 0; i < numForbiddenZones; i++) {
+//            ForbiddenZone zone = new ForbiddenZone();
+//
+//            // Generate a random number of nodes between 3 and 8
+//            zone.nodeNum = (int) (Math.random() * 6) + 3;
+//            zone.x = new double[zone.nodeNum];
+//            zone.y = new double[zone.nodeNum];
+//
+//            // Generate random nodes
+//            double centerX = Math.random() * 100;
+//            double centerY = Math.random() * 100;
+//            double radius = Math.random() * 50;
+//            double angleStep = 2 * Math.PI / zone.nodeNum;
+//
+//            for (int j = 0; j < zone.nodeNum; j++) {
+//                zone.x[j] = centerX + radius * Math.cos(angleStep * j);
+//                zone.y[j] = centerY + radius * Math.sin(angleStep * j);
+//            }
+//
+//            forbiddenZones.add(zone);
+//        }
+//
+//        data.forbiddenZones = forbiddenZones.toArray(new ForbiddenZone[forbiddenZones.size()]);
 
 
         data.num = 20;
@@ -46,12 +46,12 @@ public class main {
             double x = Math.random() * 100;
             double y = Math.random() * 100;
 
-            for (ForbiddenZone zone : data.forbiddenZones) {
-                if (zone.isPointInside(x, y)) {
-                    pointInForbiddenZone = true;
-                    break;
-                }
-            }
+//            for (ForbiddenZone zone : data.forbiddenZones) {
+//                if (zone.isPointInside(x, y)) {
+//                    pointInForbiddenZone = true;
+//                    break;
+//                }
+//            }
 
             if (!pointInForbiddenZone) {
                 data.x[times] = x;

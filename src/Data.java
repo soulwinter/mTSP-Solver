@@ -21,12 +21,16 @@ public class Data {
         return false;
     }
     private boolean isInsideForbiddenZone(double x, double y) {
-        for (ForbiddenZone zone : forbiddenZones) {
-            if (zone.isPointInside(x, y))
-            {
-                return true;
+        if (forbiddenZones != null)
+        {
+            for (ForbiddenZone zone : forbiddenZones) {
+                if (zone.isPointInside(x, y))
+                {
+                    return true;
+                }
             }
         }
+
 
         return false;
     }

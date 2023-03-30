@@ -31,17 +31,21 @@ public class MTSPVisualizer extends JFrame {
 
 
         // 绘制禁飞区
-        Color forbiddenZoneColor = new Color(255, 102, 102, 128); // 半透明淡红色
-        g2d.setColor(forbiddenZoneColor);
-        for (ForbiddenZone zone : data.forbiddenZones) {
-            Path2D polygon = new Path2D.Double();
-            polygon.moveTo(zone.x[0] * (WIDTH - POINT_SIZE) / 100 + OFFSET, zone.y[0] * (HEIGHT - POINT_SIZE) / 100 + OFFSET);
-            for (int i = 1; i < zone.nodeNum; i++) {
-                polygon.lineTo(zone.x[i] * (WIDTH - POINT_SIZE) / 100 + OFFSET, zone.y[i] * (HEIGHT - POINT_SIZE) / 100 + OFFSET);
+        if (data.forbiddenZones != null)
+        {
+            Color forbiddenZoneColor = new Color(255, 102, 102, 128); // 半透明淡红色
+            g2d.setColor(forbiddenZoneColor);
+            for (ForbiddenZone zone : data.forbiddenZones) {
+                Path2D polygon = new Path2D.Double();
+                polygon.moveTo(zone.x[0] * (WIDTH - POINT_SIZE) / 100 + OFFSET, zone.y[0] * (HEIGHT - POINT_SIZE) / 100 + OFFSET);
+                for (int i = 1; i < zone.nodeNum; i++) {
+                    polygon.lineTo(zone.x[i] * (WIDTH - POINT_SIZE) / 100 + OFFSET, zone.y[i] * (HEIGHT - POINT_SIZE) / 100 + OFFSET);
+                }
+                polygon.closePath();
+                g2d.fill(polygon);
             }
-            polygon.closePath();
-            g2d.fill(polygon);
         }
+
 
         for (int i = 0; i < data.num; i++) {
             Ellipse2D point = new Ellipse2D.Double(data.x[i] * (WIDTH - POINT_SIZE) / 100 + OFFSET,
